@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "das2"
+    }
+  },
+  "defaultProject": "das2",
+  "cli": {
+    "analytics": "4e19a510-5a1b-4164-80d8-3e1ce9cf3539"
+  }
 }

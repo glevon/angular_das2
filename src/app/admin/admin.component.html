@@ -1,0 +1,44 @@
+<table class="table table-hovered table-dark">
+    <tr>
+        <th>Name</th>
+        <th>Surename</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Delete</th>
+        <th>Block</th>
+    </tr>
+    <tr *ngFor ="let u of users,">
+        <td>{{u.name}}</td>
+        <td>{{u.surename}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.age}}</td>
+        <td><button class="btn btn-danger" (click)="delete(u)">Delete</button></td>
+        <td>
+            <button *ngIf="!u.show && u.inp==''" class="btn btn-warning" (click)="block(u)">Block</button>
+            <div *ngIf="u.show">
+                <input [(ngModel)]="u.inp"  type="text" class="form-control" placeholder="Enter a block time">
+                <button class="btn btn-secondary" (click)="save(u)">Save</button>
+            </div>
+            <div>
+                <h5 *ngIf="!u.show && u.inp!=''">{{u.inp}} minutes</h5>
+            </div>
+        </td>
+
+    </tr>
+</table>
+<div *ngIf="error!=''" class="alert alert-danger text-center">{{error}}</div>
+<table class="table table-hovered table-secondary">
+    <tr>
+        <th>Name</th>
+        <th>Surename</th>
+        <th>Email</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td><input [(ngModel)]="user.name" type="text" class="form-control" placeholder="Name"></td>
+        <td><input [(ngModel)]="user.surename" type="text" class="form-control" placeholder="Surename"></td>
+        <td><input [(ngModel)]="user.email" type="text" class="form-control" placeholder="Email"></td>
+        <td><input [(ngModel)]="user.age" type="text" class="form-control" placeholder="Age"></td>
+        <td><button class="btn btn-success" (click)="add()">Add</button></td>        
+    </tr>
+</table>
